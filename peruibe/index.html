@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotéis em Peruíbe • OndeFicarBR</title>
+
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script defer src="../../js/data.js"></script>
+  <script defer src="../../js/theme.js"></script>
+
+  <style>
+    .list-grid {
+      max-width: 1000px; margin:0 auto; padding:40px 20px;
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:20px;
+    }
+    .card-item {
+      background:var(--card-bg); border:1px solid var(--card-border);
+      border-radius:12px; padding:18px; transition:.2s;
+      text-decoration:none; color:var(--text);
+    }
+    .card-item:hover { transform:translateY(-3px); border-color:var(--accent); }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="logo">OndeFicarBR</a>
+  <nav>
+    <a href="../../index.html">Início</a>
+    <a href="../index.html">Peruíbe</a>
+    <span id="themeToggle" class="theme-toggle">🌙</span>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Hotéis em Peruíbe</h1>
+  <p>Lista selecionada de hotéis em Peruíbe.</p>
+</section>
+
+<div id="listaHoteis" class="list-grid"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lista = document.getElementById("listaHoteis");
+  const hoteis = estabelecimentos.filter(e => e.tipo === "hotel");
+
+  hoteis.forEach(h => {
+    lista.innerHTML += `
+      <a class="card-item" href="../estabelecimentos/${h.slug}.html">
+        <h3>${h.nome}</h3>
+        <p>📍 ${h.bairro}</p>
+      </a>
+    `;
+  });
+});
+</script>
+
+</body>
+</html>
