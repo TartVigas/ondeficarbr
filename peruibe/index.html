@@ -5,169 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hospedagens em Peruíbe • OndeFicarBR</title>
 
-  <!-- CSS global do projeto -->
   <link rel="stylesheet" href="../css/style.css" />
-
-  <!-- JS global -->
   <script defer src="../js/data.js"></script>
   <script defer src="../js/search.js"></script>
   <script defer src="../js/theme.js"></script>
 </head>
 
 <body>
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <a href="../index.html" class="logo">OndeFicarBR</a>
 
-    <nav>
-      <a href="../index.html">Início</a>
-      <a href="./index.html" class="active">Peruíbe</a>
-      <a href="#categorias">Categorias</a>
-      <span id="themeToggle" class="theme-toggle" aria-label="Alternar tema">🌙</span>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="logo">OndeFicarBR</a>
+
+    <nav class="nav">
+      <a href="/">Início</a>
+      <a href="/peruibe/index.html" class="active">Peruíbe</a>
+
+      <a class="whats-top" href="https://wa.me/5513997408157" target="_blank">
+        💬 BRsys Premium
+      </a>
+
+      <button id="themeToggle" class="theme-toggle">🌙</button>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <!-- HERO CIDADE -->
-    <section class="hero">
-      <p class="eyebrow">Guia de hospedagens • Peruíbe, SP</p>
+<main>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">Início</a>
+    <span class="breadcrumb-sep">•</span>
+    <span>Peruíbe</span>
+  </div>
+
+  <!-- HERO LOCAL -->
+  <section class="hero">
+    <div class="container hero-inner">
+
+      <div class="hero-badge">
+        Guia de hospedagens • <span>Peruíbe, SP</span>
+      </div>
+
       <h1>Hospedagens em Peruíbe</h1>
       <p>
-        Encontre pousadas, hotéis, hostels e campings selecionados em Peruíbe —
-        com foco em regiões como Centro, Guaraú, Jureia, Praia Sul e Barra do Una.
-        Um guia leve, direto e independente.
+        Encontre pousadas, hotéis, hostels e campings selecionados em Peruíbe — com foco em
+        regiões como Centro, Guaraú, Jureia, Praia Sul e Barra do Una.
       </p>
-    </section>
 
-    <!-- BUSCA GLOBAL (USANDO data.js + search.js) -->
-    <section class="search-area">
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="Buscar hospedagem em Peruíbe (nome, bairro, tipo)…"
-        autocomplete="off"
-      />
-      <div id="searchResults"></div>
-      <p class="search-hint">
-        Ex.: “Guaraú”, “camping”, “pousada perto da praia”.
-      </p>
-    </section>
-
-    <!-- CATEGORIAS / TIPOS -->
-    <section id="categorias">
-      <h2 class="section-title">Explorar por tipo de hospedagem</h2>
-
-      <div class="grid">
-        <a class="card card-link" href="./tipos/pousadas.html">
-          <h3>Pousadas</h3>
-          <p>Opções aconchegantes em bairros como Centro, Guaraú e Praia Sul.</p>
-        </a>
-
-        <a class="card card-link" href="./tipos/hoteis.html">
-          <h3>Hotéis</h3>
-          <p>Estrutura completa para quem busca mais serviços e conforto.</p>
-        </a>
-
-        <a class="card card-link" href="./tipos/hostels.html">
-          <h3>Hostels</h3>
-          <p>Ambiente jovem, econômico e ideal para quem viaja em grupo.</p>
-        </a>
-
-        <a class="card card-link" href="./tipos/camping.html">
-          <h3>Camping</h3>
-          <p>Contato direto com a natureza em áreas de preservação e praia.</p>
-        </a>
+      <div class="search-area">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input id="searchInput" placeholder="Buscar hospedagem em Peruíbe..." />
+        </div>
+        <div id="searchResults"></div>
       </div>
-    </section>
 
-    <!-- REGIÕES DA CIDADE -->
-    <section id="bairros">
+      <p class="section-subtitle" style="margin-top: 0.5rem;">
+        Ex.: “Guaraú”, “camping”, “pousada perto da praia”
+      </p>
+    </div>
+  </section>
+
+  <!-- TIPOS -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Explorar por tipo de hospedagem</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="grid grid-cols-2-sm grid-cols-4-lg">
+
+        <a href="./tipos/pousadas.html" class="card">
+          <div class="card-title">Pousadas</div>
+          <div class="card-text">Aconchegantes e próximas da praia.</div>
+        </a>
+
+        <a href="./tipos/hoteis.html" class="card">
+          <div class="card-title">Hotéis</div>
+          <div class="card-text">Mais estrutura e conforto.</div>
+        </a>
+
+        <a href="./tipos/hostels.html" class="card">
+          <div class="card-title">Hostels</div>
+          <div class="card-text">Ótimos para viajantes solo e grupos.</div>
+        </a>
+
+        <a href="./tipos/camping.html" class="card">
+          <div class="card-title">Camping</div>
+          <div class="card-text">Contato direto com a natureza.</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BAIRROS / REGIÕES -->
+  <section class="section">
+    <div class="section-header">
       <h2 class="section-title">Regiões de destaque em Peruíbe</h2>
+    </div>
 
-      <div class="grid">
+    <div class="container">
+      <div class="grid grid-cols-2-sm grid-cols-4-lg">
+
         <div class="card">
-          <h3>Centro</h3>
-          <p>Perto de restaurantes, comércio, rodoviária e serviços em geral.</p>
+          <div class="card-title">Centro</div>
+          <div class="card-text">Próximo a comércio, rodoviária e restaurantes.</div>
         </div>
 
         <div class="card">
-          <h3>Guaraú</h3>
-          <p>Região de praia, trilhas e natureza — muito procurada por surfistas.</p>
+          <div class="card-title">Guaraú</div>
+          <div class="card-text">Praia, trilhas, montanhas e natureza.</div>
         </div>
 
         <div class="card">
-          <h3>Jureia</h3>
-          <p>Área de preservação, acesso controlado e clima de refúgio natural.</p>
+          <div class="card-title">Jureia</div>
+          <div class="card-text">Área preservada e clima de refúgio natural.</div>
         </div>
 
         <div class="card">
-          <h3>Praia Sul</h3>
-          <p>Praias mais tranquilas, boas para famílias e quem busca sossego.</p>
+          <div class="card-title">Praia Sul</div>
+          <div class="card-text">Tranquilidade e ótimas pousadas.</div>
         </div>
 
-        <div class="card">
-          <h3>Barra do Una</h3>
-          <p>Encontro de rio e mar, estrutura simples e muita natureza.</p>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- COMO FUNCIONA O GUIA -->
-    <section class="info-section">
-      <h2 class="section-title">Como funciona o OndeFicarBR em Peruíbe</h2>
+  <!-- INFO / PREMIUM -->
+  <section class="info-section">
+    <div class="info-inner">
 
-      <div class="grid grid-text">
-        <div class="card">
-          <h3>Guia leve e direto</h3>
-          <p>
-            Nada de enrolação: mostramos nome, bairro, tipo de hospedagem
-            e links oficiais quando houver. Você escolhe onde reservar.
-          </p>
-        </div>
+      <h2 class="section-title">Quer destaque aqui?</h2>
+      <p class="section-subtitle">
+        Ativamos WhatsApp, botão de reservas e destaque visual exclusivo BRsys Premium.
+      </p>
 
-        <div class="card">
-          <h3>Independente</h3>
-          <p>
-            Listamos hospedagens da região mesmo que ainda não sejam clientes BRsys.
-            Quando um anúncio estiver em destaque, será sinalizado como anúncio premium.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Espaço para anunciantes</h3>
-          <p>
-            Quem quiser exibir WhatsApp, botão de reservas ou selo de destaque
-            pode contratar um anúncio premium com a BRsys.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA DONO DE HOSPEDAGEM -->
-    <section class="cta-owner">
-      <div class="card card-cta">
-        <h2>Tem uma pousada ou hotel em Peruíbe?</h2>
-        <p>
-          Transforme seu anúncio em destaque no OndeFicarBR e receba mais contatos
-          direto no WhatsApp, com link para reservas e destaque visual.
-        </p>
-        <a
-          class="btn-primary"
-          href="https://wa.me/5513997408157?text=Ol%C3%A1%2C+quero+saber+mais+sobre+o+an%C3%BAncio+premium+no+OndeFicarBR+de+Peru%C3%ADbe."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Falar com a BRsys no WhatsApp
+      <div class="info-premium" style="margin-top: 1rem;">
+        Fale agora com a equipe:  
+        <a href="https://wa.me/5513997408157" target="_blank">
+          <strong>+55 13 99740-8157</strong>
         </a>
-        <p class="cta-note">
-          Atendimento comercial BRsys • +55 13 99740-8157
-        </p>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    © 2025 OndeFicarBR — Guia independente de hospedagens • Projeto BRsys Local
-  </footer>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 OndeFicarBR</span>
+    <span>Guia independente • Desenvolvido pela BRsys</span>
+  </div>
+</footer>
+
 </body>
 </html>
