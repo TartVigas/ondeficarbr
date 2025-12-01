@@ -1,33 +1,66 @@
-
-(function(){
-  if (!window.estabelecimentos) return;
+// /public/js/search.js
+document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("searchInput");
-  const resultsEl = document.getElementById("searchResults");
-  if (!input || !resultsEl) return;
-  const render = (items) => {
-    resultsEl.innerHTML = "";
-    if (!items.length) return;
-    const list = document.createElement("div");
-    list.className = "list-grid";
-    items.forEach((item) => {
+  const results = document.getElementById("searchResults");
+
+  if (!input || !results || !window.estabelecimentos) return;
+
+  const baseUrl = "/public"; // ajuste se o Vercel usar outro caminho
+
+  const renderResults = (items) => {
+    results.innerHTML = "";
+
+    if (!items.length) {
+      const div = document.createElement("div");
+      div.className = "search-empty";
+      div.textContent = "Nenhuma hospedagem encontrada.";
+      results.appendChild(div);
+      return;
+    }
+
+    items.slice(0, 20).forEach((item) => {
       const a = document.createElement("a");
-      a.className = "item-card";
-      a.href = "/peruibe/estabelecimentos/" + item.slug + ".html";
-      a.innerHTML = `<div class="item-title">${item.nome}</div>
-        <div class="item-info">📍 ${item.bairro}<br>${item.descricao || ""}</div>`;
-      list.appendChild(a);
+      a.className = "search-item";
+      a.href = `${baseUrl}/peruibe/estabelecimentos/${item.slug}.html`;
+      a.innerHTML = `
+        <strong>${item.nome}</strong>
+        <span>${item.tipo} • ${item.bairro || "Bairro não informado"} • ${
+        item.cidade
+      }</span>
+      `;
+      results.appendChild(a);
     });
-    list.scrollIntoView({behavior:"smooth", block:"start"});
-    resultsEl.appendChild(list);
   };
-  input.addEventListener("input", () => {
+
+  const handle = () => {
     const q = input.value.trim().toLowerCase();
-    if (!q) { resultsEl.innerHTML = ""; return; }
-    const filtered = window.estabelecimentos.filter(e =>
-      e.nome.toLowerCase().includes(q) ||
-      (e.bairro || "").toLowerCase().includes(q) ||
-      (e.tipo || "").toLowerCase().includes(q)
-    );
-    render(filtered);
+
+    if (!q) {
+      results.innerHTML = "";
+      return;
+    }
+
+    const filtered = window.estabelecimentos.filter((e) => {
+      const txt = (
+        e.nome +
+        " " +
+        (e.tipo || "") +
+        " " +
+        (e.bairro || "") +
+        " " +
+        (e.cidade || "")
+      ).toLowerCase();
+      return txt.includes(q);
+    });
+
+    renderResults(filtered);
+  };
+
+  input.addEventListener("input", handle);
+  input.addEventListener("focus", handle);
+  document.addEventListener("click", (ev) => {
+    if (!results.contains(ev.target) && ev.target !== input) {
+      results.innerHTML = "";
+    }
   });
-})();
+});
