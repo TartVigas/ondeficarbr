@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "slug": "melhores-praias-de-peruibe",
+      "titulo": "Melhores praias de Peruíbe",
+      "resumo": "Uma lista prática com as praias mais procuradas e as mais tranquilas da cidade.",
+      "categoria": "Praias",
+      "capa": "/img/blog-praias-peruibe.jpg",
+      "url": "/blog-post.html",
+      "atualizado_em": "2025-11-30"
+    },
+    {
+      "id": 2,
+      "slug": "trilhas-e-cachoeiras-peruibe",
+      "titulo": "Trilhas e cachoeiras imperdíveis em Peruíbe",
+      "resumo": "Dicas de trilhas e cachoeiras para todos os níveis, com cuidados básicos de segurança.",
+      "categoria": "Natureza",
+      "capa": "/img/blog-trilhas-peruibe.jpg",
+      "url": "/blog-post.html",
+      "atualizado_em": "2025-11-30"
+    },
+    {
+      "id": 3,
+      "slug": "como-escolher-hospedagem-ideal",
+      "titulo": "Como escolher a hospedagem ideal em Peruíbe",
+      "resumo": "Pousada, hotel, hostel ou camping? Veja qual faz mais sentido para o seu tipo de viagem.",
+      "categoria": "Hospedagem",
+      "capa": "/img/blog-hospedagem-ideal.jpg",
+      "url": "/blog-post.html",
+      "atualizado_em": "2025-11-30"
+    },
+    {
+      "id": 4,
+      "slug": "roteiro-de-fim-de-semana-peruibe",
+      "titulo": "Roteiro de fim de semana em Peruíbe",
+      "resumo": "Sugestão de roteiro de 2 a 3 dias para aproveitar o essencial da cidade.",
+      "categoria": "Roteiros",
+      "capa": "/img/blog-roteiro-fim-de-semana.jpg",
+      "url": "/blog-post.html",
+      "atualizado_em": "2025-11-30"
+    },
+    {
+      "id": 5,
+      "slug": "onde-comer-bem-em-peruibe",
+      "titulo": "Onde comer bem em Peruíbe",
+      "resumo": "Sugestão de restaurantes, lanchonetes e lugares simples para comer bem.",
+      "categoria": "Gastronomia",
+      "capa": "/img/blog-onde-comer-peruibe.jpg",
+      "url": "/blog-post.html",
+      "atualizado_em": "2025-11-30"
+    }
+  ]
+}
