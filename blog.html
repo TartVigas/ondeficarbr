@@ -82,7 +82,7 @@
 <main>
 
 <!-- =======================
-     LISTA DE POSTS
+     LISTA DE POSTS (DINÂMICO!)
 =========================== -->
 <section class="section">
   <div class="container">
@@ -95,59 +95,13 @@
       </p>
     </header>
 
-    <div class="grid grid-3">
-
-      <!-- POST 1 -->
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🌊</div>
-          <div>
-            <h3 class="card-title">Melhores praias de Peruíbe</h3>
-            <p class="card-body">
-              Uma lista prática com as praias mais procuradas e as mais tranquilas.
-            </p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <span>Guia de praias</span>
-          <a href="/blog-post.html" class="chip-link">Ler artigo</a>
-        </div>
-      </article>
-
-      <!-- POST 2 -->
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🥾</div>
-          <div>
-            <h3 class="card-title">Trilhas e cachoeiras imperdíveis</h3>
-            <p class="card-body">
-              Para quem gosta de natureza e aventura, veja rotas e níveis de dificuldade.
-            </p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <span>Natureza</span>
-          <a href="/blog-post.html" class="chip-link">Ler artigo</a>
-        </div>
-      </article>
-
-      <!-- POST 3 -->
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🛏</div>
-          <div>
-            <h3 class="card-title">Como escolher a hospedagem ideal</h3>
-            <p class="card-body">
-              Dicas práticas para escolher pousada, hotel, hostel ou camping.
-            </p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <span>Hospedagem</span>
-          <a href="/blog-post.html" class="chip-link">Ler artigo</a>
-        </div>
-      </article>
-
+    <!-- GRID DINÂMICO -->
+    <div id="blogPostsGrid" class="grid grid-3">
+      <noscript>
+        <p style="font-size:13px; color:var(--color-text-soft);">
+          Ative o JavaScript para visualizar os artigos mais recentes.
+        </p>
+      </noscript>
     </div>
 
     <!-- CTA Premium -->
