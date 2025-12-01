@@ -3,78 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OndeFicarBR – Encontre hospedagens com facilidade</title>
+  <title>OndeFicarBR – Encontre hospedagens de forma simples</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 
-  <!-- JS -->
-  <script defer src="/js/data.js"></script>
-  <script defer src="/js/search.js"></script>
-  <script defer src="/js/theme.js"></script>
-
-  <meta name="description" content="Guia independente e moderno para encontrar pousadas, hotéis, hostels e campings. Começamos por Peruíbe, SP.">
+  <script defer src="./js/data.js"></script>
+  <script defer src="./js/search.js"></script>
+  <script defer src="./js/theme.js"></script>
 </head>
 
 <body>
-
   <!-- TOPBAR -->
   <header class="topbar">
-    <a href="/" class="logo">OndeFicarBR</a>
+    <div class="topbar-inner">
+      <a href="/" class="logo">OndeFicarBR</a>
 
-    <nav>
-      <a href="/">Início</a>
-      <a href="/peruibe/">Peruíbe</a>
-      <span id="themeToggle" class="theme-toggle">🌙</span>
-    </nav>
+      <nav class="nav">
+        <a href="/index.html" class="active">Início</a>
+        <a href="/peruibe/index.html">Peruíbe</a>
+        <button id="themeToggle" class="theme-toggle" type="button">
+          <span>Modo</span> 🌙
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Encontre onde ficar com tranquilidade</h1>
-    <p>
-      Guia independente de hospedagens selecionadas. Começamos por 
-      <strong>Peruíbe, SP</strong> — e, com o tempo, vamos expandindo.
-    </p>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-badge">
+          Guia independente • <span>Litoral de SP</span>
+        </div>
 
-  <!-- BUSCA -->
-  <section class="search-area">
-    <input id="searchInput" placeholder="Buscar hospedagem..." />
-    <div id="searchResults"></div>
-  </section>
+        <h1>Encontre onde ficar com tranquilidade</h1>
+        <p>
+          Guia independente de hospedagens selecionadas. Começamos por
+          <strong>Peruíbe, SP</strong> — e, com o tempo, vamos expandindo para
+          outras cidades do litoral.
+        </p>
 
-  <!-- CIDADES -->
-  <h2 class="section-title">Explorar cidades</h2>
+        <!-- BUSCA HOME -->
+        <div class="search-area">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Buscar hospedagem (nome, bairro ou tipo)…"
+            />
+          </div>
+          <div id="searchResults"></div>
+        </div>
+      </div>
+    </section>
 
-  <div class="grid">
-    <a class="city-card" href="/peruibe/">
-      🌴 <br>
-      <strong>Peruíbe, SP</strong>
-      <p>Pousadas, Hotéis, Hostels e Camping</p>
-    </a>
-  </div>
+    <!-- CIDADES -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Explorar cidades</h2>
+          <p class="section-subtitle">
+            Em breve novas cidades do litoral paulista. Por enquanto, começamos por Peruíbe.
+          </p>
+        </div>
+      </div>
 
-  <!-- COMO FUNCIONA -->
-  <section class="info-section">
-    <h2>Como funciona o OndeFicarBR?</h2>
+      <div class="container">
+        <div class="grid grid-cols-2-sm grid-cols-4-lg">
+          <a class="card city-card" href="/peruibe/index.html">
+            <span>🌴</span>
+            <div class="card-title">Peruíbe, SP</div>
+            <div class="card-text">
+              Pousadas, hotéis, hostels e camping em uma única página organizada.
+            </div>
+          </a>
 
-    <h3>Guia leve e direto</h3>
-    <p>Sem enrolação: nome, bairro, tipo e links oficiais. Você decide onde reservar.</p>
+          <!-- Espaço para futuras cidades -->
+          <div class="card city-card" style="opacity: 0.45; cursor: default;">
+            <span>⏳</span>
+            <div class="card-title">Em breve</div>
+            <div class="card-text">
+              Outras cidades do litoral paulista serão adicionadas conforme o guia evoluir.
+            </div>
+          </div>
 
-    <h3>Independente</h3>
-    <p>Listamos hospedagens mesmo que ainda não sejam clientes BRsys.</p>
+          <div class="card city-card" style="opacity: 0.35; cursor: default;">
+            <span>⏳</span>
+            <div class="card-title">Cidade futura</div>
+            <div class="card-text">
+              Espaço reservado para novas regiões atendidas pela BRsys.
+            </div>
+          </div>
 
-    <h3>Espaço para anunciantes</h3>
-    <p>
-      Quer exibir WhatsApp e botão de reservas direto no guia?  
-      Torne-se um anúncio premium BRsys e apareça com destaque.
-    </p>
-  </section>
+          <div class="card city-card" style="opacity: 0.35; cursor: default;">
+            <span>⏳</span>
+            <div class="card-title">Cidade futura</div>
+            <div class="card-text">
+              Quando crescer o projeto, essas cidades entram aqui automaticamente.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA / BLOCO EXPLICATIVO -->
+    <section class="info-section">
+      <div class="info-inner">
+        <div class="section-header" style="padding-inline: 0;">
+          <div>
+            <h2 class="section-title">Como funciona o OndeFicarBR?</h2>
+            <p class="section-subtitle">
+              Um guia leve para o viajante e um radar de oportunidades para quem trabalha com hospedagem.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div>
+            <h3 class="info-item-title">Guia leve e direto</h3>
+            <p class="info-item-text">
+              Nada de enrolação: mostramos nome, bairro, tipo de hospedagem e links
+              oficiais quando houver. Você decide onde reservar.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="info-item-title">Independente</h3>
+            <p class="info-item-text">
+              Listamos hospedagens da região mesmo que ainda não sejam clientes BRsys.
+              Quando um anúncio estiver ativo, será sinalizado como destaque.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="info-item-title">Espaço para anunciantes</h3>
+            <p class="info-item-text">
+              Quem quiser exibir WhatsApp, botão de reservas ou mais destaque no guia
+              pode contratar um anúncio premium BRsys.
+            </p>
+
+            <div class="info-premium">
+              Deseja destaque aqui? WhatsApp: <strong>+55 13 99740-8157</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2025 OndeFicarBR • Desenvolvido por BRsys
+    <div class="footer-inner">
+      <span>© 2025 OndeFicarBR • Desenvolvido por BRsys</span>
+      <span>Projeto BRsys Local • Versão inicial do guia</span>
+    </div>
   </footer>
-
 </body>
 </html>
