@@ -1,158 +1,182 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OndeFicarBR – Encontre hospedagens de forma simples</title>
-
-  <link rel="stylesheet" href="./css/style.css" />
-
-  <script defer src="./js/data.js"></script>
-  <script defer src="./js/search.js"></script>
-  <script defer src="./js/theme.js"></script>
+  <title>OndeFicarBR • Guia de hospedagens e turismo</title>
+  <meta name="description"
+        content="Guia leve de hospedagens, praias e experiências turísticas no litoral brasileiro, começando por Peruíbe – SP." />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
+<body class="page">
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-logo">OF</div>
+        <div class="brand-text">
+          <span class="brand-title">OndeFicarBR</span>
+          <span class="brand-subtitle">Guia leve de hospedagens</span>
+        </div>
+      </div>
 
-<body>
-<header class="topbar">
-  <div class="topbar-inner">
-
-    <a href="/" class="logo">OndeFicarBR</a>
-
-    <nav class="nav">
-      <a href="/" class="nav-link">Início</a>
-      <a href="/peruibe/index.html" class="nav-link">Peruíbe</a>
-
-      <!-- Botão Premium -->
-      <a class="whats-top" href="https://wa.me/5513997408157" target="_blank">
-        💬 BRsys Premium
-      </a>
-
-      <!-- Botão de tema -->
-      <button id="themeToggle" class="theme-toggle" type="button">🌙</button>
-    </nav>
-
-  </div>
-</header>
-
-
-        <!-- Theme -->
+      <div class="topbar-actions">
+        <a href="/peruibe.html" class="chip-link">Peruíbe – SP</a>
         <button id="themeToggle" class="theme-toggle" type="button">
-          <span>Modo</span> 🌙
+          <div class="theme-toggle-icon">☾</div>
+          <span>tema</span>
         </button>
-
-        <!-- CTA Premium WhatsApp -->
-        <a class="whats-top" href="https://wa.me/5513997408157" target="_blank">
-          💬 BRsys Premium
-        </a>
-      </nav>
+      </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
-        
-        <div class="hero-badge">
-          Guia independente • <span>Litoral de SP</span>
-        </div>
-
-        <h1>Encontre onde ficar com tranquilidade</h1>
-        <p>
-          Guia independente de hospedagens selecionadas. Começamos por
-          <strong>Peruíbe, SP</strong> — e vamos expandindo para toda a costa paulista.
-        </p>
-
-        <!-- BUSCA -->
-        <div class="search-area">
-          <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input id="searchInput" type="text" placeholder="Buscar hospedagem (nome, bairro, tipo)…"/>
-          </div>
-          <div id="searchResults"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CIDADES -->
-    <section class="section">
-      <div class="section-header">
         <div>
-          <h2 class="section-title">Explorar cidades</h2>
-          <p class="section-subtitle">Começamos por Peruíbe — mais cidades em breve.</p>
+          <div class="hero-badge">
+            <span>Guia litoral • Beta</span>
+          </div>
+          <h1 class="hero-title">
+            Encontre onde ficar no litoral com um guia
+            <strong>leve, direto e sem enrolação.</strong>
+          </h1>
+          <p class="hero-text">
+            Começamos por <strong>Peruíbe – SP</strong> e vamos expandindo cidade por cidade,
+            sempre com foco em hospedagens reais, contato rápido e informações úteis
+            para quem quer viajar sem perder tempo.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="/peruibe.html" class="btn-primary">
+              <span class="icon">➜</span>
+              <span>Ver guia de Peruíbe</span>
+            </a>
+
+            <a href="https://wa.me/5513997408157?text=Ol%C3%A1%2C+quero+anunciar+minha+hospedagem+no+OndeFicarBR"
+               target="_blank" rel="noopener noreferrer" class="btn-ghost">
+              <span>Quero anunciar minha pousada</span>
+            </a>
+          </div>
+
+          <p class="hero-meta">
+            Portal independente gerenciado pela BRsys • Versão inicial focada em Peruíbe – SP.
+          </p>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="grid grid-cols-2-sm grid-cols-4-lg">
-          <a class="card city-card" href="/peruibe/index.html">
-            <span>🌴</span>
-            <div class="card-title">Peruíbe, SP</div>
-            <div class="card-text">
-              Guia completo: pousadas, hotéis, hostels e campings.
-            </div>
-          </a>
+        <aside class="hero-image-wrapper">
+          <div class="hero-image"
+               style="background-image:url('/img/hero-costao-peruibe.jpg');">
+            <div class="hero-image-content">
+              <div>
+                <div class="hero-breadcrumb">
+                  <span>Brasil</span>
+                  <span class="separator">•</span>
+                  <span>Litoral Sul</span>
+                  <span class="separator">•</span>
+                  <span>Peruíbe – SP</span>
+                </div>
+                <div class="hero-location">Costão de Peruíbe</div>
+                <div class="hero-location-sub">
+                  Um dos cartões-postais mais famosos da cidade, ponto de partida
+                  perfeito para explorar praias, trilhas e hospedagens próximas.
+                </div>
+              </div>
 
-          <div class="card city-card" style="opacity: 0.45; cursor: default;">
-            <span>⏳</span>
-            <div class="card-title">Em breve</div>
-            <div class="card-text">
-              Outras cidades serão adicionadas à rede OndeFicarBR.
+              <div class="hero-bottom-badge">
+                <span>📍 Guia em construção • Hospedagens Premium a partir de R$ 49,90/mês</span>
+              </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="info-section">
-      <div class="info-inner">
-        <h2 class="section-title">Como funciona o OndeFicarBR?</h2>
-        <p class="section-subtitle">
-          Um guia leve para viajantes e um radar de oportunidades para negócios locais.
-        </p>
+    <!-- SEÇÃO – Cidades ativas (por enquanto só Peruíbe) -->
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Cidades ativas</p>
+          <h2 class="section-title">Começamos por Peruíbe, mas a ideia é crescer.</h2>
+          <p class="section-description">
+            A fase inicial do OndeFicarBR é totalmente focada em <strong>Peruíbe – SP</strong>.
+            Aos poucos, novas cidades do litoral paulista e brasileiro entram na rota.
+          </p>
+        </header>
 
-        <div class="info-grid">
-          <div>
-            <h3 class="info-item-title">Guia leve e direto</h3>
-            <p class="info-item-text">
-              Sem enrolação: mostramos bairro, tipo, nome e links oficiais.
-            </p>
-          </div>
+        <div class="grid grid-2">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🌊</div>
+              <div>
+                <h3 class="card-title">Peruíbe – São Paulo</h3>
+                <p class="card-body">
+                  Praias longas, Costão, trilhas, cachoeiras e pousadas para todos os bolsos.
+                  Guia com o que fazer, onde ficar e contato direto com as hospedagens.
+                </p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>Guia ativo</span>
+              <a href="/peruibe.html" class="chip-link">Abrir guia</a>
+            </div>
+          </article>
 
-          <div>
-            <h3 class="info-item-title">Independente</h3>
-            <p class="info-item-text">
-              Listamos hospedagens mesmo que ainda não sejam clientes BRsys.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="info-item-title">Destaque Premium</h3>
-            <p class="info-item-text">
-              Hospedagens podem ter botão de WhatsApp, reservas e destaque visual.
-            </p>
-
-            <div class="info-premium">
-              Quer destaque no guia? WhatsApp:
-              <a href="https://wa.me/5513997408157" target="_blank">
-                <strong>+55 13 99740-8157</strong>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🧩</div>
+              <div>
+                <h3 class="card-title">Próximos destinos</h3>
+                <p class="card-body">
+                  Já temos plano para outras cidades do litoral paulista. Se você tem
+                  uma hospedagem e quer ser um dos primeiros a aparecer no guia,
+                  entre em contato pelo WhatsApp.
+                </p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>Em planejamento</span>
+              <a href="https://wa.me/5513997408157?text=Quero+levar+minha+cidade+para+o+OndeFicarBR"
+                 target="_blank" rel="noopener noreferrer" class="chip-link">
+                Falar com BRsys
               </a>
             </div>
-          </div>
+          </article>
         </div>
 
+        <!-- CTA Premium global -->
+        <div class="premium-cta">
+          <span>
+            <strong>Quer destaque garantido no guia?</strong><br />
+            Hospedagens Premium aparecem primeiro nos cards, ganham selo especial e
+            podem ter página dedicada com fotos, mapa e contato direto.
+          </span>
+
+          <a class="whatsapp-link"
+             href="https://wa.me/5513997408157?text=Ol%C3%A1%2C+quero+o+plano+Premium+de+R%24+49%2C90+no+OndeFicarBR"
+             target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp</span>
+            <span>Plano Premium R$ 49,90/mês</span>
+          </a>
+        </div>
       </div>
     </section>
-
   </main>
 
-  <footer>
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-inner">
-      <span>© 2025 OndeFicarBR • Desenvolvido por BRsys</span>
-      <span>Guia independente de hospedagens</span>
+      <span>© OndeFicarBR • Projeto BRsys • {2025}</span>
+      <span>
+        Feito por BRsys •
+        <a href="https://wa.me/5513997408157" target="_blank" rel="noopener noreferrer">
+          Falar sobre sites e sistemas
+        </a>
+      </span>
     </div>
   </footer>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
