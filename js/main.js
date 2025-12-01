@@ -1,6 +1,6 @@
 /* ============================================================
    OndeFicarBR – main.js
-   Tema + Filtros
+   Tema + Filtros + Sistema JSON de Posts
    Projeto BRsys • 2025
 ============================================================ */
 
@@ -27,6 +27,8 @@ function updateThemeIcon() {
   const isLight = htmlEl.getAttribute("data-theme") === "light";
   const icon = toggleBtn.querySelector(".theme-toggle-icon");
 
+  if (!icon) return;
+
   icon.textContent = isLight ? "☀" : "☾"; // Sol ou Lua
 }
 
@@ -52,11 +54,14 @@ if (toggleBtn) {
 }
 
 /* ------------------------------------------------------------
-   2) FILTRO DE HOSPEDAGENS
+   2) FILTRO DE HOSPEDAGENS (Peruíbe)
 ------------------------------------------------------------ */
 
 function filterHospedagem(tipo) {
-  const cards = document.querySelectorAll("#listaHospedagens .card");
+  const lista = document.getElementById("listaHospedagens");
+  if (!lista) return; // Se não estiver na página de hospedagens, sai.
+
+  const cards = lista.querySelectorAll(".card");
 
   cards.forEach(card => {
     const cardTipo = card.getAttribute("data-tipo");
@@ -73,11 +78,77 @@ function filterHospedagem(tipo) {
 }
 
 /* ------------------------------------------------------------
-   3) Suporte para futuras funcionalidades
-   - Busca interna
-   - Paginação
-   - Botão "voltar ao topo"
-   - Dinamização futura com JSON de hospedagens
+   3) SISTEMA JSON – CARREGAR POSTS DO BLOG
 ------------------------------------------------------------ */
 
-console.log("OndeFicarBR • main.js carregado com sucesso 🚀");
+/**
+ * Renderiza os posts do /data/posts.json dentro do grid #blogPostsGrid
+ */
+async function renderBlogPosts() {
+  const grid = document.getElementById("blogPostsGrid");
+  if (!grid) return; // Não está na página do blog
+
+  try {
+    const response = await fetch("/data/posts.json", {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      console.error("Erro ao carregar posts.json:", response.status);
+      return;
+    }
+
+    const data = await response.json();
+    const posts = data.posts || [];
+
+    // Limpa o grid (caso tenha algo)
+    grid.innerHTML = "";
+
+    if (!posts.length) {
+      grid.innerHTML = `
+        <p style="font-size:13px; color:var(--color-text-soft);">
+          Ainda não temos artigos publicados. Volte em breve. 🙂
+        </p>
+      `;
+      return;
+    }
+
+    // Para cada post, cria um card com a mesma identidade visual
+    posts.forEach(post => {
+      const card = document.createElement("article");
+      card.className = "card";
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-icon">📰</div>
+          <div>
+            <h3 class="card-title">${post.titulo}</h3>
+            <p class="card-body">${post.resumo}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>${post.categoria || "Artigo"}</span>
+          <a href="${post.url || "/blog-post.html"}" class="chip-link">Ler artigo</a>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Erro ao processar posts.json:", error);
+  }
+}
+
+/* ------------------------------------------------------------
+   4) ON LOAD
+------------------------------------------------------------ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Carrega posts do blog caso esteja em /blog.html
+  renderBlogPosts();
+
+  console.log("OndeFicarBR • main.js carregado com sucesso 🚀");
+});
