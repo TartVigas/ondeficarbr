@@ -1,24 +1,30 @@
-
-(function() {
-  const body = document.body;
+// /public/js/theme.js
+document.addEventListener("DOMContentLoaded", () => {
+  const html = document.documentElement;
   const toggle = document.getElementById("themeToggle");
-  if (!toggle) return;
-  const stored = localStorage.getItem("of_theme");
-  if (stored === "light" || stored === "dark") {
-    body.setAttribute("data-theme", stored);
+
+  const saved = localStorage.getItem("ofbr-theme");
+  if (saved === "light" || saved === "dark") {
+    html.setAttribute("data-theme", saved);
   } else {
-    body.setAttribute("data-theme", "dark");
+    html.setAttribute("data-theme", "dark");
   }
-  const sync = () => {
-    const cur = body.getAttribute("data-theme");
-    toggle.textContent = cur === "light" ? "🌙" : "☀️";
+
+  const refreshIcon = () => {
+    if (!toggle) return;
+    const current = html.getAttribute("data-theme") || "dark";
+    toggle.textContent = current === "dark" ? "🌙" : "☀️";
   };
-  sync();
-  toggle.addEventListener("click", () => {
-    const cur = body.getAttribute("data-theme");
-    const next = cur === "light" ? "dark" : "light";
-    body.setAttribute("data-theme", next);
-    localStorage.setItem("of_theme", next);
-    sync();
-  });
-})();
+
+  refreshIcon();
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("ofbr-theme", next);
+      refreshIcon();
+    });
+  }
+});
