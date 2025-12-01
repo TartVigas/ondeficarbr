@@ -1,0 +1,64 @@
+{
+  "hospedagens": [
+    {
+      "id": 1,
+      "slug": "pousada-premium-costao",
+      "nome": "Pousada Premium Costão",
+      "tipo": "pousada",
+      "bairro": "Costão / Orla",
+      "resumo": "Pousada próxima ao Costão, com quartos confortáveis e atendimento diferenciado.",
+      "premium": true,
+      "url": "/hospedagem-pousada-premium-costao.html",
+      "whatsapp": "5513997408157",
+      "ordem": 1
+    },
+    {
+      "id": 2,
+      "slug": "pousada-centro-peruibe",
+      "nome": "Pousada do Centro",
+      "tipo": "pousada",
+      "bairro": "Centro",
+      "resumo": "Opção simples e bem localizada, perto de comércio e da praia.",
+      "premium": false,
+      "url": "/hospedagem-pousada-centro.html",
+      "whatsapp": "5513997408157",
+      "ordem": 2
+    },
+    {
+      "id": 3,
+      "slug": "hotel-vista-mar",
+      "nome": "Hotel Vista Mar",
+      "tipo": "hotel",
+      "bairro": "Beira-mar",
+      "resumo": "Hotel com vista para o mar, ideal para famílias e casais.",
+      "premium": false,
+      "url": "/hospedagem-hotel-vista-mar.html",
+      "whatsapp": "5513997408157",
+      "ordem": 3
+    },
+    {
+      "id": 4,
+      "slug": "hostel-raiz-peruibe",
+      "nome": "Hostel Raiz Peruíbe",
+      "tipo": "hostel",
+      "bairro": "Região Central",
+      "resumo": "Ambiente jovem, econômico e compartilhado, perto da praia.",
+      "premium": false,
+      "url": "/hospedagem-hostel-raiz.html",
+      "whatsapp": "5513997408157",
+      "ordem": 4
+    },
+    {
+      "id": 5,
+      "slug": "camping-guarau",
+      "nome": "Camping Guaraú",
+      "tipo": "camping",
+      "bairro": "Guaraú",
+      "resumo": "Área ampla e arborizada, ideal para quem gosta de natureza e simplicidade.",
+      "premium": false,
+      "url": "/hospedagem-camping-guarau.html",
+      "whatsapp": "5513997408157",
+      "ordem": 5
+    }
+  ]
+}
