@@ -1,6 +1,6 @@
 /* ============================================================
    OndeFicarBR – main.js
-   Tema + Filtros + Sistema JSON de Posts
+   Tema + Filtros + JSON (Blog + Hospedagens)
    Projeto BRsys • 2025
 ============================================================ */
 
@@ -8,82 +8,143 @@
    1) DARK / LIGHT MODE
 ------------------------------------------------------------ */
 
-// Recupera o elemento HTML
 const htmlEl = document.documentElement;
 const toggleBtn = document.getElementById("themeToggle");
 
-// Checa no localStorage o tema anterior
 const savedTheme = localStorage.getItem("of_theme");
-
-// Aplica o tema salvo (se existir)
 if (savedTheme) {
   htmlEl.setAttribute("data-theme", savedTheme);
 }
 
-// Atualiza o ícone baseado no tema atual
 function updateThemeIcon() {
   if (!toggleBtn) return;
-
   const isLight = htmlEl.getAttribute("data-theme") === "light";
   const icon = toggleBtn.querySelector(".theme-toggle-icon");
-
   if (!icon) return;
-
-  icon.textContent = isLight ? "☀" : "☾"; // Sol ou Lua
+  icon.textContent = isLight ? "☀" : "☾";
 }
 
-// Chama ao carregar a página
 updateThemeIcon();
 
-// Função para alternar o tema
 function toggleTheme() {
   const current = htmlEl.getAttribute("data-theme") || "dark";
-  const newTheme = current === "light" ? "dark" : "light";
-
-  htmlEl.setAttribute("data-theme", newTheme);
-
-  // Salva no localStorage
-  localStorage.setItem("of_theme", newTheme);
-
+  const next = current === "light" ? "dark" : "light";
+  htmlEl.setAttribute("data-theme", next);
+  localStorage.setItem("of_theme", next);
   updateThemeIcon();
 }
 
-// Listener do botão
 if (toggleBtn) {
   toggleBtn.addEventListener("click", toggleTheme);
 }
 
 /* ------------------------------------------------------------
-   2) FILTRO DE HOSPEDAGENS (Peruíbe)
+   2) FILTRO DE HOSPEDAGENS
 ------------------------------------------------------------ */
 
 function filterHospedagem(tipo) {
   const lista = document.getElementById("listaHospedagens");
-  if (!lista) return; // Se não estiver na página de hospedagens, sai.
+  if (!lista) return;
 
   const cards = lista.querySelectorAll(".card");
 
   cards.forEach(card => {
     const cardTipo = card.getAttribute("data-tipo");
 
-    // Se for "todos", mostra tudo
     if (tipo === "todos") {
       card.style.display = "block";
       return;
     }
 
-    // Se o tipo for igual ao atributo, mostra, senão esconde
     card.style.display = cardTipo === tipo ? "block" : "none";
   });
 }
 
 /* ------------------------------------------------------------
-   3) SISTEMA JSON – CARREGAR POSTS DO BLOG
+   3) JSON – HOSPEDAGENS DE PERUÍBE
 ------------------------------------------------------------ */
 
-/**
- * Renderiza os posts do /data/posts.json dentro do grid #blogPostsGrid
- */
+async function renderHospedagensPeruibe() {
+  const lista = document.getElementById("listaHospedagens");
+  if (!lista) return; // Não está na página peruibe.html
+
+  try {
+    const response = await fetch("/data/hospedagens-peruibe.json", {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      console.error("Erro ao carregar hospedagens-peruibe.json:", response.status);
+      return;
+    }
+
+    const data = await response.json();
+    const hospedagens = (data && data.hospedagens) ? data.hospedagens : [];
+
+    lista.innerHTML = "";
+
+    if (!hospedagens.length) {
+      lista.innerHTML = `
+        <p style="font-size:13px; color:var(--color-text-soft);">
+          Ainda não há hospedagens cadastradas. Volte em breve. 🙂
+        </p>
+      `;
+      return;
+    }
+
+    // Ordena por campo "ordem" (se existir) e prioriza Premium
+    hospedagens.sort((a, b) => {
+      const pa = a.premium ? 0 : 1;
+      const pb = b.premium ? 0 : 1;
+      if (pa !== pb) return pa - pb;
+      return (a.ordem || 999) - (b.ordem || 999);
+    });
+
+    hospedagens.forEach(h => {
+      const card = document.createElement("article");
+      card.className = "card";
+      if (h.premium) {
+        card.classList.add("card-premium");
+      }
+      card.setAttribute("data-tipo", h.tipo || "outro");
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-icon">
+            ${h.tipo === "pousada" ? "🏡"
+              : h.tipo === "hotel" ? "🏨"
+              : h.tipo === "hostel" ? "🛌"
+              : h.tipo === "camping" ? "⛺"
+              : "⭐"}
+          </div>
+          <div>
+            <h3 class="card-title">${h.nome}</h3>
+            <p class="card-body">
+              ${h.resumo || ""}
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>${(h.tipo || "").charAt(0).toUpperCase() + (h.tipo || "").slice(1)}${h.bairro ? " • " + h.bairro : ""}</span>
+          <a href="${h.url || "/hospedagem.html"}" class="chip-link">Ver mais</a>
+        </div>
+      `;
+
+      lista.appendChild(card);
+    });
+
+  } catch (error) {
+    console.error("Erro ao processar hospedagens-peruibe.json:", error);
+  }
+}
+
+/* ------------------------------------------------------------
+   4) JSON – POSTS DO BLOG
+------------------------------------------------------------ */
+
 async function renderBlogPosts() {
   const grid = document.getElementById("blogPostsGrid");
   if (!grid) return; // Não está na página do blog
@@ -104,7 +165,6 @@ async function renderBlogPosts() {
     const data = await response.json();
     const posts = data.posts || [];
 
-    // Limpa o grid (caso tenha algo)
     grid.innerHTML = "";
 
     if (!posts.length) {
@@ -116,7 +176,6 @@ async function renderBlogPosts() {
       return;
     }
 
-    // Para cada post, cria um card com a mesma identidade visual
     posts.forEach(post => {
       const card = document.createElement("article");
       card.className = "card";
@@ -137,18 +196,18 @@ async function renderBlogPosts() {
 
       grid.appendChild(card);
     });
+
   } catch (error) {
     console.error("Erro ao processar posts.json:", error);
   }
 }
 
 /* ------------------------------------------------------------
-   4) ON LOAD
+   5) ON LOAD
 ------------------------------------------------------------ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrega posts do blog caso esteja em /blog.html
+  renderHospedagensPeruibe();
   renderBlogPosts();
-
   console.log("OndeFicarBR • main.js carregado com sucesso 🚀");
 });
