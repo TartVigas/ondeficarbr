@@ -4,55 +4,153 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Camping Tia Lola • OndeFicarBR</title>
-  <link rel="stylesheet" href="/public/css/style.css" />
-  <script defer src="/public/js/theme.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../js/theme.js"></script>
+
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 260px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      background-size: cover;
+      background-position: center;
+      background-image: url("../img/peruibe-default.jpg");
+      border: 1px solid var(--card-border);
+    }
+
+    .section {
+      background: var(--card-bg);
+      padding: 22px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      border: 1px solid var(--card-border);
+    }
+
+    .section h2 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .cta-box {
+      margin-top: 16px;
+      background: var(--card-bg-alt);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 10px;
+    }
+
+    .cta-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: #00d17a;
+      color: #000;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: .25s;
+    }
+
+    .cta-btn:hover {
+      opacity: .8;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin: 40px 0;
+    }
+  </style>
 </head>
-<body data-theme="dark">
+
+<body>
+
+  <!-- TOPBAR -->
   <header class="topbar">
-    <a href="/index.html" class="logo">OndeFicarBR</a>
+    <a href="../index.html" class="logo">OndeFicarBR</a>
+
     <nav>
-      <a href="/index.html">Início</a>
-      <a href="/peruibe/index.html">Peruíbe</a>
-      <a href="/peruibe/lista-completa.html">Lista completa</a>
+      <a href="../index.html">Início</a>
+      <a href="../peruibe/index.html">Peruíbe</a>
       <span id="themeToggle" class="theme-toggle">🌙</span>
     </nav>
   </header>
 
-  <div class="detail-wrapper">
-    <div class="detail-layout">
-      <div>
-        <span class="badge">Camping • Barra do Una</span>
-        <h1 class="detail-title">Camping Tia Lola</h1>
-        <p class="detail-sub">Camping em Barra do Una - Peruíbe e região.</p>
+  <div class="page-container">
 
-        <div class="detail-card">
-          <h2>Sobre</h2>
-          <p>Camping rústico, ideal para quem busca natureza e simplicidade.</p>
+    <div class="banner"></div>
 
-          <div class="cta-premium">
-            Deseja exibir seu WhatsApp e contato direto aqui?<br>
-            Torne-se um anúncio premium no OndeFicarBR.<br>
-            <a class="btn-whatsapp" href="https://wa.me/5513997408157?text=Ol%C3%A1%2C%20vi%20o%20guia%20OndeFicarBR%20e%20quero%20anunciar%20minha%20hospedagem.">
-              Quero exibir meu WhatsApp
-            </a>
-          </div>
-        </div>
+    <h1>Camping Tia Lola</h1>
+    <p class="subinfo">🏕️ Camping — Guaraú, Peruíbe</p>
 
-        <div class="detail-card">
-          <h2>Informações</h2>
-          <p>📍 Endereço: Barra do Una - Peruíbe, SP</p>
-          <p>🌐 Site oficial: Não informado<br>🔗 Booking/OTA: Não informado</p>
-        </div>
-      </div>
+    <!-- SOBRE -->
+    <div class="section">
+      <h2>Sobre</h2>
+      <p>
+        O Camping Tia Lola é um dos campings tradicionais do Guaraú, cercado por natureza
+        e clima familiar. Local simples, indicado para quem busca camping raiz, economia
+        e proximidade com a praia do Guaraú.
+      </p>
 
-      <div>
-        <div class="cover"></div>
+      <div class="cta-box">
+        Deseja exibir seu WhatsApp, fotos reais e botão de reservas aqui?
+        <br>
+        Torne-se um anúncio premium BRsys.
+        <br>
+        <a class="cta-btn" href="https://wa.me/5513997408157" target="_blank">
+          Quero exibir meu WhatsApp
+        </a>
       </div>
     </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="section">
+      <h2>Informações</h2>
+
+      <p>📍 <strong>Endereço:</strong> Guaraú, Peruíbe — Não informado</p>
+
+      <p>🌐 <strong>Site oficial:</strong> Não informado</p>
+
+      <p>🔗 <strong>Booking/OTA:</strong> Não informado</p>
+    </div>
+
+    <!-- MAPA -->
+    <div class="section">
+      <h2>Mapa</h2>
+
+      <p style="opacity:0.7; font-size:0.9rem;">Mapa ainda não disponível. Em breve versão premium.</p>
+
+      <div style="
+        margin-top:12px;
+        width:100%;
+        height:260px;
+        background:#0002;
+        border-radius:14px;
+        border:1px solid var(--card-border);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:0.9rem;
+        opacity:.5;">
+        Mapa indisponível
+      </div>
+    </div>
+
   </div>
 
   <footer>
-    © 2025 OndeFicarBR — Guia independente de hospedagens • Desenvolvido por BRsys
+    © 2025 OndeFicarBR — Guia independente • Desenvolvido por BRsys
   </footer>
+
 </body>
 </html>
