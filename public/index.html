@@ -1,0 +1,90 @@
+<!-- /public/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OndeFicarBR • Encontre hospedagens confiáveis</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <script defer src="./js/data.js"></script>
+  <script defer src="./js/search.js"></script>
+  <script defer src="./js/theme.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="./index.html" class="logo">OndeFicarBR</a>
+
+    <nav>
+      <a href="./index.html" class="active">Início</a>
+      <a href="./peruibe/index.html">Peruíbe</a>
+      <span id="themeToggle" class="theme-toggle">🌙</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Encontre onde ficar com tranquilidade</h1>
+      <p>
+        Guia independente de hospedagens selecionadas. Começamos por
+        <strong>Peruíbe, SP</strong> — e, com o tempo, vamos expandindo para
+        outras cidades do litoral.
+      </p>
+
+      <div class="search-area">
+        <input
+          id="searchInput"
+          placeholder="Buscar hospedagem (nome, bairro, tipo)…"
+        />
+        <div id="searchResults"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Explorar cidades</h2>
+
+      <div class="grid">
+        <a class="card city-card" href="./peruibe/index.html">
+          <span class="city-emoji">🌴</span>
+          <h3>Peruíbe, SP</h3>
+          <p>Pousadas, hotéis, hostels e camping.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Como funciona o OndeFicarBR?</h2>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Guia leve e direto</h3>
+          <p>
+            Sem enrolação: nome, bairro, tipo de hospedagem e links oficiais
+            quando houver. Você decide onde reservar.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Independente</h3>
+          <p>
+            O guia lista hospedagens da região mesmo que ainda não sejam
+            clientes BRsys. Quando vir o selo de anúncio, é porque aquele
+            hotel apostou em destaque.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Espaço para anunciantes</h3>
+          <p>
+            Quem quiser exibir <strong>WhatsApp e botão de reservas</strong>
+            direto no guia pode contratar um anúncio premium BRsys.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 OndeFicarBR — Guia independente de hospedagens • Desenvolvido por BRsys
+  </footer>
+</body>
+</html>
