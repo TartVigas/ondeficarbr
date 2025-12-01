@@ -15,6 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const current = html.getAttribute("data-theme") || "dark";
     toggle.textContent = current === "dark" ? "🌙" : "☀️";
   };
+// theme.js – BRsys Premium Theme Switcher
+
+const html = document.documentElement;
+const toggleBtn = document.getElementById("themeToggle");
+
+// 1. Carregar tema salvo
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  html.classList.add("dark");
+  toggleBtn.textContent = "☀️";
+} else {
+  html.classList.remove("dark");
+  toggleBtn.textContent = "🌙";
+}
+
+// 2. Alternar tema ao clicar
+toggleBtn.addEventListener("click", () => {
+  const isDark = html.classList.toggle("dark");
+
+  if (isDark) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.textContent = "🌙";
+  }
+});
 
   refreshIcon();
 
